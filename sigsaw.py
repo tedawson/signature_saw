@@ -1,13 +1,11 @@
 # a script borne of spite and frustration. A specific prototype of a generalizable script
 import win32com.client
 import os
-from datetime import datetime, timedelta
+# from datetime import datetime, timedelta
 
+# accessing outlook
 outlook = win32com.client.Dispatch('outlook.application')
 mapi = outlook.GetNamespace("MAPI")
-
-for account in mapi.Accounts:
-    print(account.DeliveryStore.DisplayName)
 
 # get messages from drafts folder   
 drafts = mapi.GetDefaultFolder(16)
@@ -20,12 +18,10 @@ for message in messages:
 
 start_bull = "Just published!"
 end_bull = "Omaha)"
-adder = len(end_bull)
 
 # getting index of start and end point
 start_point = pattied.find(start_bull)
-end_pointa = pattied.find(end_bull)
-end_point = end_pointa + adder
+end_point = pattied.find(end_bull) + len(end_bull)
 
 # create substring consisting of the crap to be excised
 fullbull = pattied[start_point:end_point]
