@@ -29,4 +29,14 @@ fullbull = pattied[start_point:end_point]
 # excising the crap
 depattied = pattied.replace(fullbull, " ")
 
-print(depattied)
+# write pattied and depattied to text documents
+
+f = open(r"C:\Users\edawson4\Documents\emails\depattied.txt","w")
+f.write(depattied)
+f.close
+
+g = open(r"C:\Users\edawson4\Documents\emails\pattied.txt","w")
+g.write(pattied)
+g.close
+
+# future change--prompt for file names, etc
